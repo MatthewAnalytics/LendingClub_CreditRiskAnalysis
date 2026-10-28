@@ -1,4 +1,4 @@
-# 📈 Institutional Credit Risk & Strategy Analytics
+# Institutional Credit Risk & Strategy Analytics
 ### Data Engineering & Corporate Finance Case Study
 **Author:** Matthew Hanna  
 **Specialty Focus:** PostgreSQL, ETL Pipelines, Credit Risk Modeling (PD/LGD/EL), Dynamic Data Sanitization, Window Functions
@@ -318,7 +318,7 @@ ORDER BY cohort_write_off_rate_pct DESC;
 
 ---
 
-## 🚀 Key Takeaways & Strategic Credit Advisory Recommendations
+## Key Takeaways & Strategic Credit Advisory Recommendations
 1.  **Enact Credit Caps for Tier 5 Leverage:** Recommend immediate underwriting adjustments enforcing automated constraints on credit applications exhibiting an independent **Debt-to-Income calculation above 26.19%**, as pricing structures can no longer neutralize downside default scaling [cite: 1].
 2.  **Bolster Regional Allocations Out of California:** Implement geographical capital distribution constraints to decrease single-state systemic exposure from its current peak concentration profile down to a safer target boundary [cite: 1].
 3.  **Refine Asset-Liability Capital Reserves:** Treasury management must proactively reallocate cash reserve accounts to fund credit loss pools matching the quantified capital at risk findings [cite: 1].
