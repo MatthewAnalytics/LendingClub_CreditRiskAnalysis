@@ -1,11 +1,10 @@
-
 Institutional Credit Risk & Strategy Analytics
 
 
 Data Engineering & Corporate Finance Case Study
 
 Author: Matthew Hanna
-Specialty Focus: PostgreSQL, ETL Pipelines, Credit Risk Modeling (PD/LGD/EL), Dynamic Data Sanitization, Window Functions
+Specialty Focus: PostgreSQL, ETL Pipelines, Credit Risk Modeling (PD/LGD/EL), Dynamic Data Sanitization
 
 Project Overview & Objective
 
@@ -194,14 +193,13 @@ SELECT
     TO_CHAR(a.active_capital_exposed, '$999,999,999,999') AS active_portfolio_exposure,
     ROUND(r.probability_of_default * 100, 2) AS calculated_pd_pct,
     ROUND(r.loss_given_default * 100, 2) AS calculated_lgd_pct,
-    -- Expected Loss Formula: Exposure * PD * LGD
+    -- Expected Loss Formula: Exposure * PD * LGD (Cleaned Aggregation Syntax)
     TO_CHAR(
-        SUM(a.active_capital_exposed * r.probability_of_default * r.loss_given_default), 
+        (a.active_capital_exposed * r.probability_of_default * r.loss_given_default), 
         '$999,999,999,999'
     ) AS required_credit_loss_reserve
 FROM ActiveExposure a
 JOIN HistoricalRiskCoefficients r ON a.grade = r.grade
-GROUP BY a.grade, a.active_capital_exposed, r.probability_of_default, r.loss_given_default
 ORDER BY a.grade ASC;
 Use code with caution.
 • Empirical Discovery: LGD parameters mirror structural stability between 45%-50% globally, while Grade C segments dictate the largest capital preservation necessity, demanding a $448.84 Million isolated treasury reserve pool.
@@ -291,7 +289,7 @@ ORDER BY cohort_write_off_rate_pct DESC;
 Use code with caution.
 • Empirical Discovery: Statistical modeling debunks employment tenure longevity rules. Active defaults for veteran talent (10+ years at 11.11% failure) track closely to freshman professionals (< 1 year at 11.68% failure). Credit focus shifts exclusively away from career age parameters to focus instead on mitigating the un-disclosed income tiers (14.38% default leakage).
 
-Key Takeaways & Strategic Credit Advisory Recommendations
+🚀 Key Takeaways & Strategic Credit Advisory Recommendations
 
 1. Enact Credit Caps for Tier 5 Leverage: Recommend immediate underwriting adjustments enforcing automated constraints on credit applications exhibiting an independent Debt-to-Income calculation above 26.19%, as pricing structures can no longer neutralize downside default scaling.
 2. Bolster Regional Allocations Out of California: Implement geographical capital distribution constraints to decrease single-state systemic exposure from its current peak concentration profile down to a safer target boundary.
